@@ -21,41 +21,17 @@
  * @link      https://github.com/serlo-org/serlo.org for the canonical source repository
  */
 
-$env = 'development';
+namespace Kafka;
 
-$assets = [
-    'assets_host' => 'http://localhost:8082/',
-    'bundle_host' => 'http://localhost:8081/',
-];
-
-$services = [
-    'editor_renderer' => 'http://editor-renderer:3000',
-    'frontend' => 'http://frontend:3000',
-    'legacy_editor_renderer' => 'http://legacy-editor-renderer:3000',
-    'hydra' => 'http://hydra:4445',
-];
-
-$kafka_host = 'http://kafka-rest-proxy:8082';
-
-$db = [
-    'host' => 'mysql',
-    'port' => '3306',
-    'username' => 'root',
-    'password' => 'secret',
-    'database' => 'serlo',
-];
-
-$recaptcha = [
-    'key' => '6LfwJFwUAAAAAKHhl-kjPbA6mCPjt_CrkCbn3okr',
-    'secret' => '6LfwJFwUAAAAAPVsTPLe00oAb9oUTewOUe31pXSv',
-];
-
-$smtp_options = [];
-$tracking = [];
-$featureFlags = [
-    'donation-banner' => true,
-];
-
-$cronjob_secret = 'secret';
-$upload_secret = 'secret';
-$mock_email = true;
+class Producer
+{
+    /**
+     * Producer constructor.
+     * @param $host string
+     */
+    public function __construct($host)
+    {
+        var_dump($host);
+        exit();
+    }
+}

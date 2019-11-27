@@ -41,6 +41,7 @@ return [
 
     // (FeatureFlags Module)
     'feature_flags' => $featureFlags,
+    'kafka_host' => $kafka_host,
 
     // Branding, one entry per instance (Ui Module)
     'brand' => [

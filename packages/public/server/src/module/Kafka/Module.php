@@ -20,42 +20,33 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://github.com/serlo-org/serlo.org for the canonical source repository
  */
+namespace Kafka;
 
-$env = 'development';
+class Module
+{
+    public function getConfig()
+    {
+        return include __DIR__ . '/config/module.config.php';
+    }
 
-$assets = [
-    'assets_host' => 'http://localhost:8082/',
-    'bundle_host' => 'http://localhost:8081/',
-];
+    public function getAutoloaderConfig()
+    {
+        $autoloader = [];
 
-$services = [
-    'editor_renderer' => 'http://editor-renderer:3000',
-    'frontend' => 'http://frontend:3000',
-    'legacy_editor_renderer' => 'http://legacy-editor-renderer:3000',
-    'hydra' => 'http://hydra:4445',
-];
+        $autoloader['Zend\Loader\StandardAutoloader'] = [
+            'namespaces' => [
+                __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+            ],
+        ];
 
-$kafka_host = 'http://kafka-rest-proxy:8082';
+        if (file_exists(__DIR__ . '/autoload_classmap.php')) {
+            return [
+                'Zend\Loader\ClassMapAutoloader' => [
+                    __DIR__ . '/autoload_classmap.php',
+                ],
+            ];
+        }
 
-$db = [
-    'host' => 'mysql',
-    'port' => '3306',
-    'username' => 'root',
-    'password' => 'secret',
-    'database' => 'serlo',
-];
-
-$recaptcha = [
-    'key' => '6LfwJFwUAAAAAKHhl-kjPbA6mCPjt_CrkCbn3okr',
-    'secret' => '6LfwJFwUAAAAAPVsTPLe00oAb9oUTewOUe31pXSv',
-];
-
-$smtp_options = [];
-$tracking = [];
-$featureFlags = [
-    'donation-banner' => true,
-];
-
-$cronjob_secret = 'secret';
-$upload_secret = 'secret';
-$mock_email = true;
+        return $autoloader;
+    }
+}
