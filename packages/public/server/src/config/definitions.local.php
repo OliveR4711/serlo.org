@@ -30,12 +30,12 @@ $assets = [
 
 $services = [
     'editor_renderer' => 'http://editor-renderer:3000',
-    'frontend' => 'http://frontend:3000',
+    'frontend' => 'http://host.docker.internal:1234',
     'legacy_editor_renderer' => 'http://legacy-editor-renderer:3000',
     'hydra' => 'http://hydra:4445',
+    'kafka' => 'http://kafka-rest-proxy:8082',
+    'commenting-system' => 'http://commenting-system:8080'
 ];
-
-$kafka_host = 'http://kafka-rest-proxy:8082';
 
 $db = [
     'host' => 'mysql',
@@ -53,6 +53,7 @@ $recaptcha = [
 $smtp_options = [];
 $tracking = [];
 $featureFlags = [
+    'redesign' => true,
     'donation-banner' => true,
 ];
 
