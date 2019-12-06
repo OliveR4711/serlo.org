@@ -30,7 +30,7 @@ $assets = [
 
 $services = [
     'editor_renderer' => 'http://editor-renderer:3000',
-    'frontend' => 'http://host.docker.internal:1234',
+    'frontend' => 'http://host.docker.internal:3000',
     'legacy_editor_renderer' => 'http://legacy-editor-renderer:3000',
     'hydra' => 'http://hydra:4445',
     'kafka' => 'http://kafka-rest-proxy:8082',
