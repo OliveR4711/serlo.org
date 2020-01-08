@@ -64,7 +64,7 @@ export function createPlugins(
     blockquote: createBlockquotePlugin(),
     error: errorPlugin,
     geogebra: createGeogebraPlugin(),
-    highlight: createHintPlugin(),
+    highlight: createHighlightPlugin(),
     hint: createHintPlugin(),
     image: createImagePlugin(getCsrfToken),
     important: createImportantStatementPlugin(),
